@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Text</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'count.css' %}">
+</head>
+<body>
+    <div id="title">Type your Text!</div>
+    <form action="{% url 'result' %}" method="post">{% csrf_token %}
+        <div class="container">
+                <textarea name="text" id="text_field" cols="30" rows="10"></textarea>
+        </div>
+        <br>
+        <input id="submit" type="submit" value="COUNT">
+    </form>
+</body>
+</html>

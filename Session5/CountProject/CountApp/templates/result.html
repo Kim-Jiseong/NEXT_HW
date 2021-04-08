@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Text</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'result.css' %}">
+</head>
+<body>
+    <div class="container">
+        <p id="text">Text : {{text}} </p>
+        <p id="text_num">Number of letters: {{total_len}} </p>
+        <p id="no_blank">Without Blank : {{no_blank_len}} </p>
+        <p id="word_num">Number of words : {{word}} </p>
+    </div>
+    
+
+    <form action="{% url 'count' %}" method="post">{% csrf_token %}
+        <input id="recount" type="submit" value="Recount">
+    </form>
+</body>
+</html>
