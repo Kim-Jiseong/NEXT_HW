@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block css %}{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'edit.css' %}">
+
+{% endblock %}
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block content %}
+        <div class="edit-post-container">
+            <form method="POST">
+                {% csrf_token %}
+                글 수정하기
+                <label for="title">제목</label>
+                <input type="text" value="{{ post.title }}" name="title">
+                <label for="content">내용</label>
+                <textarea name="content">{{ post.content }}</textarea>
+                    {{ post.due_date }}
+                <input type="datetime-local" id="due_date" name="due_date">
+                <input id="edit-post-submit-btn" type="submit">
+            </form>
+        </div>
+{% endblock content %}
+

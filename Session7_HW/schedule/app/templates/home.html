@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+</head>
+<body>
+    <h1>당신을 위한 일정관리</h1>
+    <div>
+        <ul>
+            {% for post in posts %}
+            <li>
+                <a href="{% url 'detail' post.pk %}">{{ post.title }}</a><br>
+                {{ post.content }}
+                {{ post.due_date }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a class = "add" href="{% url 'new' %}">일정 추가하기</a>
+</body>
+</html>
