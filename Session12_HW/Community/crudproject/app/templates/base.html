@@ -1,0 +1,58 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}?v=1">
+  <script src="https://kit.fontawesome.com/be589f1f63.js" crossorigin="anonymous"></script>
+
+  {% block css %}
+  {% endblock css %}
+  <title>  
+  {% block title %}
+  
+  {% endblock %}
+  </title>
+</head>
+<body>
+  <a class="menu" >메뉴</a>
+  <div class="header">
+    <div class="nav-bar">
+      <div class="menu-bar">
+        <a class="nav-item" href="{% url 'home' %}">HOME</a>
+        {% if user.is_authenticated %}
+          <div class="nav-item">안녕하세요, {{ user.username }}님</div>
+          <a class="nav-item" href="{% url 'logout' %}">로그아웃</a>
+        {% else %}
+          <a class="nav-item" href="{% url 'login' %}">로그인</a>
+          <a class="nav-item" href="{% provider_login_url 'kakao' %}">카카오 로그인</a>
+          <a class="nav-item" href="{% url 'signup' %}">회원가입</a>
+        {% endif %}
+      </div>
+    </div>     
+  </div>
+  <div class="container">
+    {% block content %}
+    {% endblock content %}
+  </div>
+  <script type="text/javascript">
+    let navbar = document.querySelector(".header");
+    let menu = document.querySelector(".menu");
+    navbar.classList.add("hidden");
+  
+    menu.addEventListener("click", () => {
+      if (menu.textContent == "메뉴") {
+        navbar.classList.remove("hidden");
+        menu.textContent = "접기";
+      }
+      else {
+        navbar.classList.add("hidden");
+        menu.textContent = "메뉴";
+      };
+    })
+  </script>
+</body>
+</html>

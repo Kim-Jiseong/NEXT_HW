@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block css %}{% load static %}
+<link rel="stylesheet" href="{% static 'new.css' %}">
+
+{% endblock %}
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+    <input id="title" type="text" name="title" placeholder="제목을 입력해주세요">
+    <script  type="text/javascript">
+      function textcounter() {
+        document.getElementById("counting").innerHTML = document.getElementById("content").value.length;
+      }
+    </script>
+    <textarea id="content" type="text" name="content" onkeyup="textcounter()" placeholder="내용을 입력해주세요"></textarea>
+    <span>글자수: </span><span id="counting">0</span>
+    <button id="submit" type="submit">작성하기</button>
+ 
+  </form>
+{% endblock content %}
