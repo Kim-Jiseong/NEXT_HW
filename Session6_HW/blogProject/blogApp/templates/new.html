@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input name="title" placeholder="제목을 입력하세요">
+        <textarea name="content" cols="30" rows="10" placeholder="내용을 입력하세요"></textarea>
+        Category<br>
+        <select class="btn btn-outline-secondary"  name="choice" id="">
+            <option class="dropdown-item" value="movie" name="movie">영화</option>
+            <option class="dropdown-item" value="drama"name="drama" >드라마</option>
+            <option class="dropdown-item" value="programming" name="programming">프로그래밍</option>
+        </select>
+        
+        <button type="submit">저장하기</button>
+    </form>
+</body>
+</html>

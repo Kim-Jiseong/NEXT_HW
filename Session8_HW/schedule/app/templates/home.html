@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block css %}{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+{% endblock %}
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+<div class="posts-container">
+    {% for post in posts %}
+    
+    <a href="{% url 'detail' post.pk %}">
+        <div class="post-wrapper">
+            <div class="post-title">
+                {{post.title}}
+            </div>
+            <div class="post-content">
+                {{post.content}}
+                {{ post.due_date }}
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}

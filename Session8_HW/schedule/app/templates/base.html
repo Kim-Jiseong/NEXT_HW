@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png"
+        href="https://user-images.githubusercontent.com/46775877/116785680-cda79500-aad5-11eb-9894-c98b45d084b4.png">
+    
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    {% block css %}
+    {% endblock css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do-List</title>
+</head>
+
+<body>
+    <div class="nav_container">
+        <div>
+            <a href="{% url 'home' %}" class="nav_item">HOME</a>
+            <a href="{% url 'new' %}" class="nav_item">NEW</a>
+        </div>
+    </div>
+    <div class="title">
+        {% block title %}
+        
+        {% endblock title %}
+    </div>
+    <div class="container">
+        {% block content %}
+        
+        {% endblock content %}
+
+    </div>
+    
+</body>
+
+</html>

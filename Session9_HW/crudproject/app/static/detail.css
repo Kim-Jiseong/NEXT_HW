@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: flex-start;
+}

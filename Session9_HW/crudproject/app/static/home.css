@@ -1,0 +1,34 @@
+body {
+    background-color: #EEEEEE;
+    margin: 0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: flex-start;
+    
+    
+}
+
+.container-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #dfe1e5;
+   
+}
+.container-items > a {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+
+}
+.write-new {
+    display: flex;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    justify-content: flex-end;
+}
